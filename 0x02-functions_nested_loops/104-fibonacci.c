@@ -1,48 +1,61 @@
 #include <stdio.h>
 
 /**
- * main -prints the first 98 fibonacci numbers
- * Return: Always 0
+ * numLength - returns the length of string
+ * @num :operand number
+ * Return: number of digits
  */
 
+int numLength(int num)
+{
+	int length = 0;
+
+	if (!num)
+	{
+		return (1);
+	}
+
+	while (num)
+	{
+		num = num / 10;
+		length += 1;
+	}
+
+	return (length);
+}
+/**
+ * main - prints the first 98 fibonacci sequences
+ * Return: 0
+ */
 int main(void)
 {
-	int i;
-	unsigned long n1 = 0, n2 = 1, n3;
-	unsigned long u1, u2, u3, u4;
-	unsigned long 11, 12;
+	unsigned long f1 = 1, f2 = 2, tmp, mx = 100000000, f10 = 0, f20 = 0, tmpo = 0;
+	short int i = 1, initial0s;
 
-
-
-	for (i = 0; i < 92; i++)
+	while (i <= 98)
 	{
-		n3 = n1 + n2;
-		printf("%lu, ", n3);
-		n1 = n2;
-		n2 = n3;
-	}
-	u1 = n1 / 10000000000;
-	u3 = n2 / 10000000000;
-	u2 = n1 % 10000000000;
-	u4 = n2 % 10000000000;
-
-	for (i = 93; i < 99; i++)
-	{
-		11 = u1 + u3;
-		12 = u2 + u4;
-		if ((u2 + u4) > 9999999999)
+		if (f10 > 0)
+			printf("%lu", f10);
+		initial0s = numLength(mx) - 1 - numLength(f1);
+		while (f10 > 0 && initial0s > 0)
 		{
-			11 += 1;
-			12 %= 10000000000;
+			printf("%i", 0);
+			initial0s--;
 		}
-		printf("%lu%lu", 11, 12);
+		printf("%lu", f1);
+
+		tmp = (f1 + f2) % mx;
+		tmpo = f10 + f20 + (f1 + f2) / mx;
+		f1 = f2;
+		f10 = f20;
+		f2 = tmp;
+		f20 = tmpo;
+
 		if (i != 98)
 			printf(", ");
-		u1 = u3;
-		u2 = u4;
-		u3 = 11;
-		u4 = 12;
+		else
+			printf("\n");
+		i++;
 	}
-	printf("\n");
 	return (0);
 }
