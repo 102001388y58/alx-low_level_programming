@@ -4,7 +4,7 @@
  * puts_half - prints half of a string
  * @str: input
  */
-void puts_puts_half(char *str)
+void puts_half(char *str)
 {
 	int len = 0;
 
