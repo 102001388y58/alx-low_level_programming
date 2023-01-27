@@ -6,7 +6,7 @@
  * @str: string to be added to the list
  *
  * Return: NULL in case of failure
- * or address or element 
+ * or address or element
  */
 
 list_t *add_node_end(list_t **head, const char *str)
@@ -31,7 +31,7 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	new->str = dup;
 	new->len = len;
-	new->next =NULL;
+	new->next = NULL;
 
 	if  (*head == NULL)
 		*head = new;
@@ -40,7 +40,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		last = *head;
 		while (last->next != NULL)
 			last = last->next;
-		last->next =new;
+		last->next = new;
 	}
 	return (*head);
 }
